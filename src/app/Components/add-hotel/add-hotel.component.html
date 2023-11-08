@@ -1,0 +1,85 @@
+<div class="form-main-container">
+    <div class="form-container">
+        <h1>{{action}} Hotel Details</h1>
+        <form novalidate (ngSubmit)="onSubmit()" [formGroup]="myform">
+
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" id="name" placeholder="Enter Hotel Name" [ngClass]="{  
+                    'text-sucess':name.errors === null,
+                    'text-danger':name.errors && (name.dirty || name.touched),
+                    'text-normal':true
+                  }">
+                <div *ngIf="name.errors && (name.dirty || name.touched)" class="field-errors">
+                    <p *ngIf="name.errors['required']">Name cannot be blank.</p>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="phoneNo">Phone Number</label>
+                <input type="text" formControlName="phoneNo" id="phoneNo" placeholder="Enter Hotel Phone no." [ngClass]="{  
+                    'text-sucess':phoneNo.errors === null,
+                    'text-danger':phoneNo.errors && (phoneNo.dirty || phoneNo.touched),
+                    'text-normal':true
+                  }">
+                <div *ngIf="phoneNo.errors && (phoneNo.dirty || phoneNo.touched)" class="field-errors">
+                    <p *ngIf="phoneNo.errors['required']">Phone number cannot be blank.</p>
+                    <p *ngIf="phoneNo.errors['minlength']">Please enter valid phone number.</p>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="ratings">Ratings</label>
+                <input type="number" formControlName="ratings" id="ratings" placeholder="Enter Hotel Ratings"
+                [ngClass]="{  
+                    'text-sucess':ratings.errors === null,
+                    'text-danger':ratings.errors && (ratings.dirty || ratings.touched),
+                    'text-normal':true
+                  }">
+                <div *ngIf="ratings.errors && (ratings.dirty || ratings.touched)" class="field-errors">
+                    <p *ngIf="ratings.errors['required']">Ratings cannot be blank.</p>
+                    <p *ngIf="ratings.errors['max']">Please rate it between 0 to 5.</p>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input type="number" formControlName="price" id="price" placeholder="Enter Hotel Price"
+                [ngClass]="{  
+                    'text-sucess':price.errors === null,
+                    'text-danger':price.errors && (price.dirty || price.touched),
+                    'text-normal':true
+                  }">
+                <div *ngIf="price.errors && (price.dirty || price.touched)" class="field-errors">
+                    <p *ngIf="price.errors['required']">Price cannot be blank.</p>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="address">Address</label>
+                <input type="text" formControlName="address" id="address" placeholder="Enter Hotel Address"
+                [ngClass]="{  
+                    'text-sucess':address.errors === null,
+                    'text-danger':address.errors && (address.dirty || address.touched),
+                    'text-normal':true
+                  }">
+                <div *ngIf="address.errors && (address.dirty || address.touched)" class="field-errors">
+                    <p *ngIf="address.errors['required']">Address cannot be blank.</p>
+                </div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="reset" (click)="onReset()"
+                [ngClass]="{
+                    'btn-disabled': myform.pristine || myform.untouched,
+                    'btn-enabled' : myform.dirty || myform.valid
+                }">Reset</button>             
+                <button type="submit" [disabled]="myform.invalid"
+                [ngClass]="{
+                    'btn-disabled': myform.invalid,
+                    'btn-enabled' : myform.valid
+                }">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

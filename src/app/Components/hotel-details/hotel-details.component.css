@@ -1,0 +1,16 @@
+.hotel-details {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+    width: 90%;
+}
+
+.hotel-details div{
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.star {
+    display: flex;
+    align-items: baseline;
+}

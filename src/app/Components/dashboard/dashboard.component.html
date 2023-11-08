@@ -1,0 +1,4 @@
+<div class="hotels-container">
+    <app-child (renderEvent)="showHotels($event)" *ngIf="!flag; else elseblock"></app-child>
+    <ng-template #elseblock ><app-hotels></app-hotels></ng-template>  
+</div>

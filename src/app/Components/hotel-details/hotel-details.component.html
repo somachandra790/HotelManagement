@@ -1,0 +1,8 @@
+<div *ngIf="hotel" class="hotel-details">
+    <div><b> Address : </b>{{hotel.address}}</div>
+    <div><b> Phone no : </b>{{hotel.phoneNo | phoneformat : "-"}}</div>
+    <div class="star">
+        <div style="margin: 0; padding: 0 6px 0 0;"><b> Ratings : </b> {{hotel.ratings}} </div>
+    </div>
+    <div><b> Price : </b>{{ hotel.price| currency : 'INR'}}</div>
+</div>

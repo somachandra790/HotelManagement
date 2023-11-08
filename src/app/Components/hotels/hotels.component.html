@@ -1,0 +1,27 @@
+<div style="padding: 0.5em ; color: #424242;"> Showing results for <b>{{today | date : 'fullDate'}} - {{tomorrow | date
+        : 'fullDate'}}</b></div>
+<ul>
+    <!-- <h1 *ngIf="!(hotels$ | async)?.length" style="text-align: center;">No Hotels to show</h1>
+    <div *ngFor="let hotel of hotels$ |async" class="hotel-container"
+        [ngClass]="{'border-style' : hotel === selectedHotel}"> -->
+
+        <h1 *ngIf="!(hotels)?.length" style="text-align: center;">No Hotels to show</h1>
+        <div *ngFor="let hotel of hotels" class="hotel-container"
+            [ngClass]="{'border-style' : hotel === selectedHotel}">
+
+        <div>
+            <img src="{{hotel.imgUrl}}" alt="{{hotel.name}}" class="hotel-image" (click)="viewDetails(hotel)">
+            <div class="hotel-controls">
+                <div class="hotel-name">{{hotel.name}}</div>
+                <div class="hotel-edit">
+                    <app-edit-hotel [hotel]="hotel"></app-edit-hotel>
+                </div>
+
+                <div class="hotel-delete">
+                    <app-delete-hotel [id]="hotel.id"></app-delete-hotel>
+                </div>
+            </div>
+        </div>
+        <app-hotel-details [hotel]="selectedHotel" *ngIf="hotel.id === selectedHotel?.id"></app-hotel-details>
+    </div>
+</ul>

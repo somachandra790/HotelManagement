@@ -1,0 +1,14 @@
+.child-container{
+    height: 25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: darkorange;
+    border: none;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+}
